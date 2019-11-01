@@ -102,7 +102,7 @@ public class TeamProjects extends TFrame1_null {
 
 	@Override
 	public void arrange(String id, int x, int y) {
-
+			
 		// 팀프로젝트 상세 내용 화면
 		tPjtP.add(tPjtNameL); // 프로젝트명
 		tPjtNameL.setBounds(250, 55, 220, 40);
@@ -193,7 +193,7 @@ public class TeamProjects extends TFrame1_null {
 		mgr = new TeamProject_Projects_Mgr();
 		vlist = mgr.showProject(projectIndex);
 		int completeRate = mgr.getCompleteRate(projectIndex);
-		//System.out.println("completeRate :  " +completeRate);
+		System.out.println("completeRate :  " +completeRate);
 		
 		String s1 = vlist.get(0).getPhoto();
 		ImageIcon ss1 = new ImageIcon(new ImageIcon(s1).getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH));

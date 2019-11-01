@@ -372,7 +372,7 @@ public boolean isIDinPjt(int projectIndex, String id) {
 		int completeRate = 0;
 		try {
 			con = pool.getConnection(); // pool에서 Connection 빌려온다.
-			sql = "SELECT (SELECT COUNT(id) FROM complete WHERE pjtidx = ? AND DATE = ?) / (SELECT COUNT(id) FROM detailplan WHERE pjtidx = ? AND DAYs = ? AND onOff = 1)";
+			sql = "SELECT (SELECT COUNT(id)FROM complete WHERE pjtidx = ? AND DATE = ?) / (SELECT COUNT(id) FROM detailplan WHERE pjtidx = ? AND DAYs IN (?,'매일') AND onOff = 1)";					
 			pstmt = con.prepareStatement(sql);	
 			pstmt.setInt(1, projectIdx);
 			pstmt.setString(2,year+"-"+month+"-"+day);
