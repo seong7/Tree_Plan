@@ -131,6 +131,7 @@ public class TeamPlanCreate extends TFrame2 implements ItemListener {
 		imageL.setOpaque(true);
 		imageL.setBackground(Color.white);
 		photoT.setBounds(420, 45, 230, 30);
+		photoT.setEditable(false);
 		photoT.setFont(new Font("³ª´®½ºÄù¾î¶ó¿îµå ExtraBold", Font.PLAIN, 12));
 		photoB.setBounds(665, 44, 100, 30);
 		photoB.setBackground(new Color(211, 221, 179));

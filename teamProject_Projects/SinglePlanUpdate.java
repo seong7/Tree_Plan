@@ -139,6 +139,7 @@ public class SinglePlanUpdate extends TFrame2 implements ActionListener {
 		imageL.setBackground(Color.white);
 		photoT.setBounds(380, 45, 230, 30);
 		photoT.setFont(new Font("³ª´®½ºÄù¾î¶ó¿îµå ExtraBold", Font.PLAIN, 12));
+		photoT.setEditable(false);
 		photoB.setBounds(635, 44, 100, 30);
 		photoB.setBackground(new Color(211, 221, 179));
 		photoB.setFont(new Font("³ª´®½ºÄù¾î¶ó¿îµå ExtraBold", Font.PLAIN, 12));

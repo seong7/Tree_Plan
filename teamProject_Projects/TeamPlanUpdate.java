@@ -66,7 +66,7 @@ public class TeamPlanUpdate extends TFrame2 implements ItemListener{
 		photoL = new JLabel("사진");
 		imageL = new JLabel("image");
 		photoT = new JTextField("", 30);
-		photoT.setEnabled(false);
+		photoT.setEditable(false);
 		photoB = new JButton("첨부");
 		
 		//4번
