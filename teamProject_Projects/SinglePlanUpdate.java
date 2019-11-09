@@ -55,10 +55,10 @@ public class SinglePlanUpdate extends TFrame2 implements ActionListener {
 	int projectIndex;
 	
 	Calendar now = Calendar.getInstance();
-	int year = now.get(Calendar.YEAR);
-	int month = now.get(Calendar.MONTH) + 1;
-	int day = now.get(Calendar.DAY_OF_MONTH);
-	String today = year + "-" + month + "-" + day;
+	int year1 = now.get(Calendar.YEAR);
+	int month1 = now.get(Calendar.MONTH) + 1;
+	int day1 = now.get(Calendar.DAY_OF_MONTH);
+	String today = year1 + "-" + month1 + "-" + day1;
 
 	public SinglePlanUpdate(int projectIndex) {
 		this.projectIndex = projectIndex;
@@ -406,6 +406,9 @@ public class SinglePlanUpdate extends TFrame2 implements ActionListener {
 			} else if (endDateT.getText().length() < 8) {
 				flag = 2;
 				JOptionPane.showMessageDialog(null, "종료일은 8자리 숫자입니다!", "알림", JOptionPane.WARNING_MESSAGE);
+				return;
+			} else if (year1 * 10000 + month1 * 100 + day1 > Integer.parseInt(endDateT.getText().trim())) {
+				JOptionPane.showMessageDialog(null, "종료일은 오늘보다 빠를 수 없습니다.", "알림", JOptionPane.WARNING_MESSAGE);
 				return;
 			}
 
