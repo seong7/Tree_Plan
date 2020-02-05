@@ -150,6 +150,7 @@ public class SignUp extends TFrame2{
 			// 프사
 			photoTf.setBounds(160, 470, 200, 30);
 			photoTf.setFont(new Font("나눔스퀘어 Bold", Font.PLAIN, 15));
+			photoTf.setEditable(false);
 			allP.add(photoTf);
 			// 프사 미리보기
 			photo2L.setBounds(375, 370, 80, 80);

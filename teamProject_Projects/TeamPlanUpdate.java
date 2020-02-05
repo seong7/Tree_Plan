@@ -14,6 +14,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.Calendar;
 import java.util.Vector;
 
 import javax.swing.ImageIcon;
@@ -46,6 +47,11 @@ public class TeamPlanUpdate extends TFrame2 implements ItemListener{
 	Vector <TeamProject_Projects_Bean> vlist;
 	TeamProject_Projects_Bean bean;
 	TeamProject_Projects_Mgr mgr;
+	Calendar now = Calendar.getInstance();
+	int year = now.get(Calendar.YEAR);
+	int month = now.get(Calendar.MONTH) + 1;
+	int day = now.get(Calendar.DAY_OF_MONTH);
+	
 	int projectIndex;
 	
 	public TeamPlanUpdate(int projectIndex) {
@@ -66,7 +72,7 @@ public class TeamPlanUpdate extends TFrame2 implements ItemListener{
 		photoL = new JLabel("사진");
 		imageL = new JLabel("image");
 		photoT = new JTextField("", 30);
-		photoT.setEnabled(false);
+		photoT.setEditable(false);
 		photoB = new JButton("첨부");
 		
 		//4번
@@ -225,6 +231,7 @@ public class TeamPlanUpdate extends TFrame2 implements ItemListener{
 	    
 		mgr = new TeamProject_Projects_Mgr ();
 		vlist = mgr.showProject(projectIndex);
+
 		
 		planNameT.setText(vlist.get(0).getPjtName());
 		String s1 = vlist.get(0).getPhoto();
@@ -289,6 +296,9 @@ public class TeamPlanUpdate extends TFrame2 implements ItemListener{
 			} else if (endDayT.getText().length() < 8) {
 				flag = 1;
 				JOptionPane.showMessageDialog(null, "종료일은 8자리의 숫자입니다", "Plan Tree", JOptionPane.WARNING_MESSAGE);
+				return;
+			} else if (year * 10000 + month * 100 + day > Integer.parseInt(endDayT.getText().trim())) {
+				JOptionPane.showMessageDialog(null, "종료일은 오늘보다 빠를 수 없습니다.", "알림", JOptionPane.WARNING_MESSAGE);
 				return;
 			} else if (closeCB.isSelected() && roomPwdT.getPassword().length == 0) {
 				flag = 1;
